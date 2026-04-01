@@ -20,6 +20,8 @@ header.navigation-bar {
     align-items: center;
     flex-wrap: wrap;
     gap: 0.75rem;
+    position: relative;
+    z-index: 10;
 }
 
 header.navigation-bar h2 {
@@ -67,6 +69,8 @@ header.navigation-bar .navbar-list li:hover a {
     justify-content: center;
     text-align: center;
     position: relative;
+    min-height: 100vh;
+    margin-top: -90px;
 }
 
 .home img {
@@ -80,6 +84,7 @@ header.navigation-bar .navbar-list li:hover a {
     font-weight: 500;
     line-height: 1.7;
     color: rgb(157, 203, 240);
+    animation: fadeUp 0.7s 0.1s ease both;
 }
 
 .home-action {
@@ -107,4 +112,282 @@ header.navigation-bar .navbar-list li:hover a {
 .btn-schedule:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(127, 255, 212, 0.25);
+}
+
+.home-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 1.00rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.6s ease both;
+}
+
+.home-scroll-line {
+    width: 1px;
+    height: 40px;
+    background: white;
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+    0%, 100% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(0.5); opacity: 0.3;}
+}
+
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background: white;
+    max-width: 1200px;
+    margin-inline: auto;
+    animation: fadeUp 1.5s 0.7s ease both;
+}
+
+#about {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 5rem 1.5rem;
+    box-sizing: border-box;   
+}
+
+.about-label {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: rgb(94, 253, 213);
+    animation: fadeUp 1.7s 0.9s ease both;
+}
+
+.about-title {
+    font-size: 40px;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 1.25ren;
+    animation: fadeUp 1.9s 1.0s ease both;
+}
+
+.about-title em {
+    font-style: italic;
+    color: rgb(94, 253, 213);
+}
+
+.about-desc {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: rgb(255, 255, 255);
+    animation: fadeUp 2.1s 1.2s ease both;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.75rem;
+    animation: fadeUp 2.3s 1.4s ease both;
+}
+
+.tag {
+    padding: 0.3rem 0.85rem;
+    border: 1px solid rgb(31, 157, 216);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    color: rgb(83, 162, 214);
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.tag:hover {
+    border-color: white;
+    color: white;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.discord-card {
+    background: #112c52;
+    border: 1px solid white;
+    border-radius: 24px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 2.3s 1.4s ease both;
+}
+
+.discord-card::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(88,101,242,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+.discord-card::after {
+            content: '';
+            position: absolute;
+            bottom: -60px; left: -60px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(127,255,212,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+.discord-text {
+    max-width: 500px;
+}
+
+.discord-title {
+    font-size: 30px;
+    color: white;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.discord-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.btn-discord {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 2rem;
+    background: rgb(9, 104, 194);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(88, 186, 242, 0.3);
+}
+
+.btn-discord:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(22, 99, 172, 0.45);
+}
+
+footer {
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 1100px;
+    margin-inline: auto;
+}
+
+.footer-logo {
+    font-size: 1rem;
+    color: white;
+    letter-spacing: 0.08em;
+}
+
+.footer-note {
+    font-size: 0.78rem;
+    color: white;
+}
+
+/* MOBILE */
+@media (max-width: 680px) {
+
+    header.navigation-bar {
+        justify-content: center;
+        text-align: center;
+    }
+
+    header.navigation-bar h2 {
+        width: auto;
+    }
+
+    header.navigation-bar .navbar-list ul {
+        gap: 0.75rem;
+    }
+
+    header.navigation-bar .navbar-list li a {
+        padding: 0.4rem 0.9rem;
+        font-size: 0.9rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    #about {
+        padding: 3rem 1.25rem;
+    }
+
+    .about-title {
+        font-size: 28px;              
+    }
+
+    .discord-card {
+        flex-direction: column;       
+        align-items: flex-start;
+                      
+        gap: 1.25rem;
+    }
+
+    .discord-title {
+        font-size: 22px;              
+    }
+
+    .discord-actions {
+        width: 100%;
+    }
+
+    
+    .home img {
+        width: 280px;                 
+    }
+
+    .home-sub {
+        font-size: 0.95rem;
+        padding-inline: 1rem;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
 }
