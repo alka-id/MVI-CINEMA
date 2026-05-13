@@ -203,6 +203,16 @@ header.navigation-bar .navbar-list li:hover a {
     transform: translateY(-20px);
 }
 
+.poster-bg-moana img {
+    width: 890px;
+    transform: translateY(-90px) translateX(-140px);
+}
+
+.poster-bg-doraemon img {
+    width: 890px;
+    transform: translateY(-120px) translateX(-140px);
+}
+
 .card-badge {
     position: absolute;
     top: 12px;
